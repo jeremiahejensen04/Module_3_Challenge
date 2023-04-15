@@ -3,7 +3,11 @@
 
 function generatePassword() {
   //prompts user to choose password paramters
-  let length = parseInt(window.prompt("How many characters do you want in your password"));
+  let length = parseInt(window.prompt("How long do you want your password to be?"));
+
+  while (!Number.isInteger(length) || length < 8 || length > 128) {
+    length = parseInt(window.prompt("Invalid length! Please enter a number between 8 and 128:"));
+  }
 
   let includeLowercase = window.confirm("Would you like to include lowercase letters?");
   let includeUppercase = window.confirm("Would you like to include uppercase letters?");
